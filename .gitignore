@@ -1,0 +1,13 @@
+*.o
+pubg_linux
+*.out
+*.swp
+*.orig
+.vscode/
+.idea/
+cmake_install.cmake
+cmake-build-debug
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
