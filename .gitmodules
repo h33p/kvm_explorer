@@ -1,0 +1,6 @@
+[submodule "kvm-rpm"]
+	path = kvm-rpm
+	url = git@github.com:Heep042/kvm-rpm.git
+[submodule "qhexedit2"]
+	path = qhexedit2
+	url = https://github.com/Simsys/qhexedit2
