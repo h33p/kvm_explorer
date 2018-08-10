@@ -38,6 +38,7 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QPushButton *refreshButton;
+    QLineEdit *processName;
     QComboBox *processList;
     QSplitter *splitter;
     QTableWidget *moduleList;
@@ -96,11 +97,19 @@ public:
 
         horizontalLayout->addWidget(refreshButton);
 
-        processList = new QComboBox(centralWidget);
-        processList->setObjectName(QStringLiteral("processList"));
+        processName = new QLineEdit(centralWidget);
+        processName->setObjectName(QStringLiteral("processName"));
         QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Maximum);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(processName->sizePolicy().hasHeightForWidth());
+        processName->setSizePolicy(sizePolicy2);
+        processName->setMaximumSize(QSize(150, 16777215));
+
+        horizontalLayout->addWidget(processName);
+
+        processList = new QComboBox(centralWidget);
+        processList->setObjectName(QStringLiteral("processList"));
         sizePolicy2.setHeightForWidth(processList->sizePolicy().hasHeightForWidth());
         processList->setSizePolicy(sizePolicy2);
 
@@ -199,7 +208,7 @@ public:
         hexWidget->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 391, 96));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 531, 96));
         hexWidget->setWidget(scrollAreaWidgetContents);
 
         verticalLayout_2->addWidget(hexWidget);
@@ -242,6 +251,7 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         refreshButton->setText(QApplication::translate("MainWindow", "Refresh", nullptr));
+        processName->setPlaceholderText(QApplication::translate("MainWindow", "Enter Process Name", nullptr));
         refreshPaged->setText(QApplication::translate("MainWindow", "Refresh", nullptr));
 #ifndef QT_NO_TOOLTIP
         amountUnpaged->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p>Percentage of data in RAM as opposed to being paged out to disk.</p></body></html>", nullptr));

@@ -1,6 +1,9 @@
-[submodule "kvm-rpm"]
-	path = kvm-rpm
-	url = git@github.com:Heep042/kvm-rpm.git
 [submodule "qhexedit2"]
 	path = qhexedit2
 	url = https://github.com/Simsys/qhexedit2
+[submodule "vmread"]
+	path = vmread
+	url = ../vmread.git
+[submodule "framework"]
+	path = framework
+	url = ../m0dular.git

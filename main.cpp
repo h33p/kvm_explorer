@@ -2,19 +2,21 @@
 #include <QApplication>
 #include <stdio.h>
 
-win_context* g_ctx = NULL;
+WinContext* g_ctx = NULL;
 
 int main(int argc, char *argv[])
 {
-	win_context ctx;
-	ctx.data.pid = 2777;
+        pid_t pid;
+        FILE* pipe = popen("pidof qemu-system-x86_64", "r");
+        fscanf(pipe, "%d", &pid);
+        pclose(pipe);
+
+	WinContext ctx(pid);
 	g_ctx = &ctx;
-	initialize_context(g_ctx, ctx.data.pid, 100);
 
-
-    QApplication a(argc, argv);
+	QApplication a(argc, argv);
 	MainWindow w;
-    w.show();
+	w.show();
 
-    return a.exec();
+	return a.exec();
 }

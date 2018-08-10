@@ -1,14 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "kvm-rpm/utils/win_translate.h"
+#include "vmread/hlapi/hlapi.h"
 #include <QMainWindow>
 #define private public
 #include "qhexedit2/src/qhexedit.h"
 #undef private
 
 namespace Ui {
-class MainWindow;
+	class MainWindow;
 }
 
 class MainWindow : public QMainWindow
@@ -16,9 +16,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-	win_process* process_list;
+	explicit MainWindow(QWidget *parent = 0);
+	~MainWindow();
 
 private slots:
 	void on_refreshButton_clicked();
@@ -35,8 +34,10 @@ private slots:
 
 	void on_curAddress_returnPressed();
 
+    void on_processName_returnPressed();
+
 private:
-    Ui::MainWindow *ui;
+	Ui::MainWindow *ui;
 	QHexEdit* hexEdit;
 
 	void reloadHex(uintptr_t address, uintptr_t size);
