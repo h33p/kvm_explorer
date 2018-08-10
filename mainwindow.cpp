@@ -40,6 +40,7 @@ void RefreshList(QComboBox* combo)
 {
 	QStringList pList = QStringList();
 
+	g_ctx->processList.Refresh();
 	for (auto& p : g_ctx->processList) {
 		std::stringstream stream;
 		stream << "[" << p.proc.pid << "] " << p.proc.name << " (" << std::hex << p.proc.physProcess << "; " << p.proc.process << ")";
