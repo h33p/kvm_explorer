@@ -1,5 +1,10 @@
 *.o
+.qmake.stash
 pubg_linux
+moc_*.cpp
+moc_*.c
+moc_*.h
+kvm_explorer
 *.out
 *.swp
 *.orig
