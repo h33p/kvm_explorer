@@ -5,6 +5,7 @@
 
 ###### Compiling
 qmake
+
 make -j 8
 
 Run as root.
