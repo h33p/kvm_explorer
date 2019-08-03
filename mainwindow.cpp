@@ -8,28 +8,15 @@
 extern WinContext* g_ctx;
 WinProcess* proc = nullptr;
 
-template<typename T, typename N>
-T Read(N addr)
+void ReadMem(void* dest, void* source, size_t size)
 {
-	return proc->Read<T>(addr);
+	VMemRead(&g_ctx->ctx.process, proc->proc.dirBase, (uint64_t)dest, (uint64_t)source, size);
 }
 
-template<typename T, typename N>
-void ReadArr(N addr, T* arr, size_t count)
+void WriteMem(void* dest, void* source, size_t size)
 {
-	VMemRead(&g_ctx->ctx.process, proc->proc.dirBase, (uint64_t)arr, addr, sizeof(T) * count);
+	VMemWrite(&g_ctx->ctx.process, proc->proc.dirBase, (uint64_t)source, (uint64_t)dest, size);
 }
-template uintptr_t Read(uintptr_t);
-template unsigned int Read(uintptr_t);
-template int Read(uintptr_t);
-template void ReadArr(uintptr_t, char*, size_t);
-
-template<typename T, typename N>
-T Write(N addr, T value)
-{
-	proc->Write(addr, value);
-}
-
 
 int currow = 0;
 int curcolumn = 0;

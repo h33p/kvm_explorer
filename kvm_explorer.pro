@@ -31,6 +31,7 @@ SOURCES += \
     vmread/wintools.c \
     vmread/vmmem.c \
     vmread/mem.c \
+    vmread/pmparser.c \
     vmread/hlapi/windll.cpp \
     vmread/hlapi/winprocess.cpp \
     vmread/hlapi/winprocesslist.cpp \
